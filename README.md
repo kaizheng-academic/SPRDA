@@ -1,33 +1,24 @@
 # GAPDA
-PIWI proteins and Piwi-Interacting RNAs (piRNAs) are commonly detected in human cancers, especially in germline and somatic tissues, and correlate with poorer clinical outcomes, suggesting that they play a functional role in cancer. As the problem of combinatorial explosions between ncRNA and disease exposes out gradually, new bioinformatics methods for large-scale identification and prioritization of potential associations are therefore of interest. However, in the real world, the network of interactions between molecules is enormously intricate and noisy, which poses a problem for efficient graph mining. This study aims to make preliminary attempts on bionetwork- based graph mining. In this study, we present a method based on graph attention network to identify potential and biologically significant piRNA-disease associations (PDAs), called GAPDA. The attention mechanism can calculate a hidden representation of an association in the network based on neighbor nodes and assign weights to the input to make decisions. In particular, we introduce the attention-based Graph Neural Networks to the field of piRNA-association prediction for the first time. In the experiment, GAPDA performes excellently in five-fold cross-validation with the AUC of 0.9038. Not only that, but it still has superior performance compared to methods based on collaborative filtering and attribute features. The experimental results show that GAPDA ensures the prospect of the graph neural network on such problems and can be an excellent supplement for future biomedical research.
+piRNA and PIWI proteins have been confirmed for disease diagnosis and treatment as novel biomarkers due to its abnormal expression in various cancers. However, the current research is not strong enough to further clarify the functions of piRNA in cancer and its underlying mechanism. Therefore, how to provide large-scale and serious piRNA candidates for biological research has grown up to be a pressing issue. In this study, a novel computational model based on the structural perturbation method is proposed to predict potential disease-associated piRNAs, called SPRDA. Notably, SPRDA belongs to positive-unlabeled learning, which is unaffected by negative examples in contrast to previous approaches. In the five-fold cross-validation, SPRDA shows high performance on the benchmark dataset piRDisease, with an AUC of 0.9529. Furthermore, the predictive performance of SPRDA for 10 diseases shows the robustness of the proposed method. Overall, the proposed approach can provide unique insights into the pathogenesis of the disease and will advance the field of oncology diagnosis and treatment.
 
 # Requirements
-* python = 3.6
+* matlab 2018b
 
-# Installation
-conda install keras=2.2.0 tensorflow=1.10.0
-
-pip install networkx
-
-Installation has been tested in a Windows platform.
+The code has been tested on the Windows platform.
 
 # Dataset Description
-* A_RNA: the line graph;
-* feature0-4: the node features;
-
+* 5-cv.mat: Adjacency matrixes for five-fold cross-validation;
+* disease_RNA_A.mat: Complete piRNA-disease association matrix;
+* DS_small_gene.mat: Disease functional similarity network;
+* PS_small.mat: piRNA sequence similarity network;
+* Gaussian.mat: the piRNA and disease Gaussian interaction profile kernel similarity networks;
 
 # Functions Description
-* ```GAPDA.py```: this function can implement the GAPDA algorithm;
+* ```SPRDA.m```: this function can implement the SPRDA algorithm;
 
 # Train and test folds
 
-1.Constructing the line graph
-
-python line_graph.py
-
-2. Five-fold cross-validation
-
-python GAPDA.py 
+matlab -r SPRDA
 
 All files of Data and Code should be stored in the same folder to run the model.
 
