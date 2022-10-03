@@ -18,7 +18,7 @@ The code has been tested on the Windows platform.
 
 # Train and test folds
 
-matlab -r SPRDA
+run ```SPRDA.m```
 
 All files of Data and Code should be stored in the same folder to run the model.
 
